@@ -52,7 +52,7 @@ class Ps_CustomerSignIn extends Module implements WidgetInterface
 
     public function getWidgetVariables($hookName, array $configuration)
     {
-        $logged = $this->context->customer->isLogged();
+        $logged = $this->context->customer?$this->context->customer->isLogged():false;
 
         if ($logged) {
             $customerName = $this->getTranslator()->trans(
